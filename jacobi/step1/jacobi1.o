@@ -1,0 +1,36 @@
+N = 8
+Iterations = 10
+CUDA : Parsed fileinputs/8.txt
+CUDA : Done Computing Jacobi on CPU
+
+CUDA : Time 0.012992 ms
+CUDA : MaxError = 0.848437
+
+
+N = 256
+Iterations = 1500
+CUDA : Parsed fileinputs/256.txt
+CUDA : Done Computing Jacobi on CPU
+
+CUDA : Time 784.355042 ms
+CUDA : MaxError = 0.349045
+
+
+N = 1024
+Iterations = 10000
+CUDA : Parsed fileinputs/1024.txt
+CUDA : Done Computing Jacobi on CPU
+
+CUDA : Time 82854.328125 ms
+CUDA : MaxError = 0.031250
+
+
+N = 5120
+Iterations = 150000
+CUDA : Parsed fileinputs/5120.txt
+CUDA : Done Computing Jacobi on CPU
+
+CUDA : Time 31010578.000000 ms
+CUDA : MaxError = 0.141602
+
+
