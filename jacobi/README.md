@@ -2,14 +2,12 @@
 
 To compile in CUDA,
 
-nvcc -o <object filename> <filename.cu>
+nvcc -o object filename.cu
 
 To run the simulation,
 
-./<stepN.sh>
->
-<output filename>
+./stepN.sh > output
   
 To launch visual profiler,
 
-CUDA_VISIBLE_DEVICES=<GPU number> nvvp
+CUDA_VISIBLE_DEVICES=0 nvvp
