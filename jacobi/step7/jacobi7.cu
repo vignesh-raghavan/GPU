@@ -46,32 +46,24 @@ void readFile(char* fname, int* N, int* iter, float** A, float** b)
 __global__
 void iloop(float* A, float* b, int N, float* x, float* y)
 {
-	float t;
 	extern __shared__ float X[];
 
-	int index = (blockIdx.x * blockDim.x) +  threadIdx.x;
-	int stride = (gridDim.x * blockDim.x);
+	float t = 0.0;
+	int i = (blockIdx.x * blockDim.x) + threadIdx.x;
+	int j;
 
-	//printf("<<< %d, %f, %f >>>\n", N, A[0], b[0]);
-	for(int k = threadIdx.x; k < N; k += blockDim.x)
+	for(j = threadIdx.x; j < N; j += blockDim.x)
 	{
-		X[k] = x[k];
+		X[j] = x[j];
 	}
 
 	__syncthreads();
 
-	for(int i = index; i < N; i += stride)
+	for(j = 0; j < N; j++)
 	{
-		t = 0.0;
-		for(int j = 0; j < N; j++)
-		{
-			if(i != j)
-			{
-				t = t + (( A[ ((N*i)+j) ] ) * X[j]);
-			}
-		}
-		y[i] = ((b[i] - t)/(A[ ((N*i)+i) ]));
+		t += (( A[ ((N*i)+j) ] ) * X[j]);
 	}
+	y[i] = X[i] + ( (b[i] - t)/(A[ ((N*i)+i) ]) );
 }
 
 
