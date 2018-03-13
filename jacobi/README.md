@@ -6,7 +6,7 @@ nvcc -o <object filename> <filename.cu>
 
 To run the simulation,
 
-./<stepN.sh> > <output filename>
+./<stepN.sh> \> <output filename>
   
 To launch visual profiler,
 
