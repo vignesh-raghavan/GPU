@@ -1,40 +1,40 @@
 N = 8
 Iterations = 10
-CUDA : Parsed file inputs/8.txt
+CUDA : Parsed file ../inputs/8.txt
 CUDA : Grid Size 1, Block size 256
 CUDA : Done Computing Jacobi on GPU
 
-CUDA : Time 0.128864 ms
+CUDA : Time 0.241824 ms
 CUDA : MaxError = 0.848436
 
 
 N = 256
 Iterations = 1500
-CUDA : Parsed file inputs/256.txt
+CUDA : Parsed file ../inputs/256.txt
 CUDA : Grid Size 1, Block size 256
 CUDA : Done Computing Jacobi on GPU
 
-CUDA : Time 85.925468 ms
+CUDA : Time 86.099136 ms
 CUDA : MaxError = 0.349037
 
 
 N = 1024
 Iterations = 10000
-CUDA : Parsed file inputs/1024.txt
+CUDA : Parsed file ../inputs/1024.txt
 CUDA : Grid Size 4, Block size 256
 CUDA : Done Computing Jacobi on GPU
 
-CUDA : Time 2009.724854 ms
+CUDA : Time 2029.731323 ms
 CUDA : MaxError = 0.031433
 
 
 N = 5120
 Iterations = 150000
-CUDA : Parsed file inputs/5120.txt
+CUDA : Parsed file ../inputs/5120.txt
 CUDA : Grid Size 20, Block size 256
 CUDA : Done Computing Jacobi on GPU
 
-CUDA : Time 163722.812500 ms
+CUDA : Time 163906.890625 ms
 CUDA : MaxError = 0.141602
 
 
