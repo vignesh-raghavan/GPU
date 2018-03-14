@@ -1,0 +1,24 @@
+==60802== NVPROF is profiling process 60802, command: ./jacobi6 ../inputs/1024.txt 256
+==60802== Profiling application: ./jacobi6 ../inputs/1024.txt 256
+==60802== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   99.99%  4.02484s     20000  201.24us  199.36us  224.45us  iloop(float*, float*, int, float*, float*, int, int)
+                    0.01%  258.82us         4  64.705us  1.0880us  255.56us  [CUDA memcpy HtoD]
+                    0.00%     544ns         1     544ns     544ns     544ns  [CUDA memcpy DtoH]
+      API calls:   87.72%  1.83010s     20000  91.505us  10.814us  579.22us  cudaLaunch
+                    5.48%  114.37ms         2  57.185ms  4.3570us  114.37ms  cudaEventCreate
+                    4.96%  103.55ms         5  20.709ms  11.883us  103.15ms  cudaMemcpy
+                    1.46%  30.504ms    140000     217ns     184ns  384.39us  cudaSetupArgument
+                    0.26%  5.4068ms     20000     270ns     221ns  3.0580us  cudaConfigureCall
+                    0.03%  710.65us        94  7.5600us     957ns  255.63us  cuDeviceGetAttribute
+                    0.03%  559.42us         4  139.86us  8.2740us  329.06us  cudaMalloc
+                    0.02%  514.70us         4  128.67us  11.237us  315.95us  cudaFree
+                    0.02%  378.59us         1  378.59us  378.59us  378.59us  cuDeviceTotalMem
+                    0.00%  68.044us         2  34.022us  18.278us  49.766us  cudaStreamCreate
+                    0.00%  54.723us         1  54.723us  54.723us  54.723us  cuDeviceGetName
+                    0.00%  28.088us         2  14.044us  8.5430us  19.545us  cudaStreamDestroy
+                    0.00%  19.202us         2  9.6010us  8.5080us  10.694us  cudaEventRecord
+                    0.00%  10.582us         1  10.582us  10.582us  10.582us  cudaEventElapsedTime
+                    0.00%  5.6580us         1  5.6580us  5.6580us  5.6580us  cudaEventSynchronize
+                    0.00%  4.6240us         3  1.5410us  1.1320us  2.2990us  cuDeviceGetCount
+                    0.00%  2.2860us         2  1.1430us  1.0800us  1.2060us  cuDeviceGet
