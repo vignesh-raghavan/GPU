@@ -1,0 +1,32 @@
+==54978== NVPROF is profiling process 54978, command: ./jacobi2 ../inputs/8.txt 256
+==54978== Profiling application: ./jacobi2 ../inputs/8.txt 256
+==54978== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:  100.00%  827.39us        10  82.739us  27.622us  463.24us  iloop(float*, float*, int, float*, float*)
+      API calls:   84.23%  122.05ms         2  61.023ms  4.4610us  122.04ms  cudaEventCreate
+                   14.08%  20.402ms         4  5.1005ms  12.074us  20.364ms  cudaMallocManaged
+                    0.60%  866.13us        10  86.613us  29.344us  466.37us  cudaDeviceSynchronize
+                    0.47%  685.17us        94  7.2890us     951ns  247.54us  cuDeviceGetAttribute
+                    0.26%  376.22us         1  376.22us  376.22us  376.22us  cuDeviceTotalMem
+                    0.20%  287.26us        10  28.725us  23.215us  62.529us  cudaLaunch
+                    0.09%  123.96us         4  30.990us  19.537us  52.139us  cudaFree
+                    0.04%  54.064us         1  54.064us  54.064us  54.064us  cuDeviceGetName
+                    0.01%  17.838us         2  8.9190us  7.4320us  10.406us  cudaEventRecord
+                    0.01%  11.645us        50     232ns     193ns     394ns  cudaSetupArgument
+                    0.01%  8.6250us         1  8.6250us  8.6250us  8.6250us  cudaEventElapsedTime
+                    0.00%  6.5900us         1  6.5900us  6.5900us  6.5900us  cudaEventSynchronize
+                    0.00%  4.6500us         3  1.5500us  1.1830us  2.1250us  cuDeviceGetCount
+                    0.00%  4.5320us        10     453ns     334ns  1.1440us  cudaConfigureCall
+                    0.00%  2.4740us         2  1.2370us  1.2300us  1.2440us  cuDeviceGet
+
+==54978== Unified Memory profiling result:
+Device "Tesla P100-SXM2-16GB (0)"
+   Count  Avg Size  Min Size  Max Size  Total Size  Total Time  Name
+      10  64.000KB  64.000KB  64.000KB  640.0000KB  30.56000us  Host To Device
+      10  64.000KB  64.000KB  64.000KB  640.0000KB  29.18400us  Device To Host
+      71         -         -         -           -  808.6080us  Gpu page fault groups
+       1         -         -         -           -  434.2290us  Page throttles
+       3  64.000KB  64.000KB  64.000KB  192.0000KB           -  Memory thrashes
+Total CPU Page faults: 13
+Total CPU thrashes: 3
+Total CPU throttles: 2
