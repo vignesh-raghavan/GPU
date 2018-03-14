@@ -4,7 +4,7 @@ CUDA : Parsed file ../inputs/8.txt
 CUDA : Grid Size 112, Block size 1024
 CUDA : Done Computing Jacobi on GPU
 
-CUDA : Time 0.230592 ms
+CUDA : Time 0.551776 ms
 CUDA : MaxError = 0.848436
 
 
@@ -14,7 +14,7 @@ CUDA : Parsed file ../inputs/256.txt
 CUDA : Grid Size 112, Block size 1024
 CUDA : Done Computing Jacobi on GPU
 
-CUDA : Time 27.053888 ms
+CUDA : Time 47.846401 ms
 CUDA : MaxError = 0.349098
 
 
@@ -24,7 +24,7 @@ CUDA : Parsed file ../inputs/1024.txt
 CUDA : Grid Size 112, Block size 1024
 CUDA : Done Computing Jacobi on GPU
 
-CUDA : Time 550.006531 ms
+CUDA : Time 552.380859 ms
 CUDA : MaxError = 0.032776
 
 
@@ -34,7 +34,7 @@ CUDA : Parsed file ../inputs/5120.txt
 CUDA : Grid Size 112, Block size 1024
 CUDA : Done Computing Jacobi on GPU
 
-CUDA : Time 49564.378906 ms
+CUDA : Time 49593.453125 ms
 CUDA : MaxError = 0.166992
 
 

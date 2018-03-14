@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CUDA_VISIBLE_DEVICES=1 ./jacobi8 ../inputs/8.txt
-CUDA_VISIBLE_DEVICES=1 ./jacobi8 ../inputs/256.txt
-CUDA_VISIBLE_DEVICES=1 ./jacobi8 ../inputs/1024.txt
-CUDA_VISIBLE_DEVICES=1 ./jacobi8 ../inputs/5120.txt
+CUDA_VISIBLE_DEVICES=1 nvprof --log-file nvprof/1024.8    ./jacobi8 ../inputs/8.txt    >> 1024.o
+CUDA_VISIBLE_DEVICES=1 nvprof --log-file nvprof/1024.256  ./jacobi8 ../inputs/256.txt  >> 1024.o
+CUDA_VISIBLE_DEVICES=1 nvprof --log-file nvprof/1024.1024 ./jacobi8 ../inputs/1024.txt >> 1024.o
+CUDA_VISIBLE_DEVICES=1 nvprof --log-file nvprof/1024.5120 ./jacobi8 ../inputs/5120.txt >> 1024.o

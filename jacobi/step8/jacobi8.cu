@@ -114,7 +114,7 @@ int main(int argc, char* argv[])
    cudaEventCreate(&start);
    cudaEventCreate(&stop);
 
-   if(argc == 2) fname = argv[1];
+   if(argc >= 2) fname = argv[1];
    else fname = "../inputs/8.txt";
 
    readFile(fname, &N, &iter, &A, &b);
@@ -159,17 +159,12 @@ int main(int argc, char* argv[])
 	if( cudaMemcpy(d_x, x, N*sizeof(float)  , cudaMemcpyHostToDevice) != cudaSuccess ) printf("CUDA : memory copy error!\n");
 	for(k = 0; k < iter; k++)
 	{
-	   //if( cudaMemcpy(d_x, x, N*sizeof(float)  , cudaMemcpyHostToDevice) != cudaSuccess ) printf("CUDA : memory copy error!\n");
 		iloop<<< numblocks, blocksize, ((N+blocksize)*sizeof(float)) >>>(d_A, d_b, N, d_x, d_y); // kernel launch on GPU
 	   if( cudaMemcpy(d_x, d_y, N*sizeof(float)  , cudaMemcpyDeviceToDevice) != cudaSuccess ) printf("CUDA : memory copy error!\n");
-		//cudaDeviceSynchronize();
-		//iloop<<< numblocks, blocksize >>>(d_A, d_b, N, d_y, d_x); // kernel launch on GPU
-		//cudaDeviceSynchronize();
 		//if(k%100 == 0)printf("CUDA: %d\n", k);
 	}
    if( cudaMemcpy(x, d_x, N*sizeof(float)  , cudaMemcpyDeviceToHost) != cudaSuccess ) printf("CUDA : memory copy error!\n");
 	
-	//add<<<1, 1>>>(d_x, d_y, N);
 	//cudaDeviceSynchronize();
 	//for(j = 0; j < N; j++) printf("CUDA : %f\n", d_y[j]);
 
