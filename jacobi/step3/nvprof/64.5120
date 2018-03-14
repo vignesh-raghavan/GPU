@@ -1,0 +1,23 @@
+==55656== NVPROF is profiling process 55656, command: ./jacobi3 ../inputs/5120.txt 64
+==55656== Profiling application: ./jacobi3 ../inputs/5120.txt 64
+==55656== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   99.78%  125.244s    150000  834.96us  819.24us  861.61us  iloop(float*, float*, int, float*, float*)
+                    0.21%  266.02ms    150000  1.7730us  1.2480us  3.5520us  [CUDA memcpy DtoD]
+                    0.01%  8.7783ms         4  2.1946ms  2.4960us  8.7708ms  [CUDA memcpy HtoD]
+                    0.00%  1.3120us         1  1.3120us  1.3120us  1.3120us  [CUDA memcpy DtoH]
+      API calls:   97.47%  122.234s    150000  814.89us  11.598us  1.7436ms  cudaLaunch
+                    2.25%  2.82736s    150005  18.848us  13.242us  428.34ms  cudaMemcpy
+                    0.14%  174.98ms    750000     233ns     183ns  704.00us  cudaSetupArgument
+                    0.09%  113.59ms         2  56.796ms  4.4910us  113.59ms  cudaEventCreate
+                    0.04%  46.650ms    150000     310ns     234ns  358.13us  cudaConfigureCall
+                    0.00%  2.1491ms         4  537.26us  11.322us  1.6392ms  cudaFree
+                    0.00%  783.26us         4  195.82us  7.8570us  544.71us  cudaMalloc
+                    0.00%  685.05us        94  7.2870us     963ns  247.26us  cuDeviceGetAttribute
+                    0.00%  376.05us         1  376.05us  376.05us  376.05us  cuDeviceTotalMem
+                    0.00%  54.039us         1  54.039us  54.039us  54.039us  cuDeviceGetName
+                    0.00%  21.215us         2  10.607us  10.258us  10.957us  cudaEventRecord
+                    0.00%  10.935us         1  10.935us  10.935us  10.935us  cudaEventElapsedTime
+                    0.00%  5.9380us         1  5.9380us  5.9380us  5.9380us  cudaEventSynchronize
+                    0.00%  4.2700us         3  1.4230us  1.1740us  1.8830us  cuDeviceGetCount
+                    0.00%  2.2710us         2  1.1350us  1.0580us  1.2130us  cuDeviceGet

@@ -1,0 +1,23 @@
+==55490== NVPROF is profiling process 55490, command: ./jacobi3 ../inputs/8.txt 32
+==55490== Profiling application: ./jacobi3 ../inputs/8.txt 32
+==55490== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   59.72%  25.289us        10  2.5280us  2.3050us  4.1930us  iloop(float*, float*, int, float*, float*)
+                   32.04%  13.570us        10  1.3570us  1.2480us  1.9210us  [CUDA memcpy DtoD]
+                    6.80%  2.8810us         4     720ns     672ns     864ns  [CUDA memcpy HtoD]
+                    1.44%     608ns         1     608ns     608ns     608ns  [CUDA memcpy DtoH]
+      API calls:   97.73%  121.64ms         2  60.821ms  4.1680us  121.64ms  cudaEventCreate
+                    0.87%  1.0833ms        94  11.524us  1.8480us  377.28us  cuDeviceGetAttribute
+                    0.57%  713.01us         1  713.01us  713.01us  713.01us  cuDeviceTotalMem
+                    0.21%  264.15us         4  66.036us  10.160us  232.38us  cudaMalloc
+                    0.20%  246.17us        15  16.411us  11.535us  28.746us  cudaMemcpy
+                    0.18%  227.17us         4  56.792us  11.461us  188.12us  cudaFree
+                    0.13%  157.62us        10  15.761us  11.950us  44.670us  cudaLaunch
+                    0.07%  82.967us         1  82.967us  82.967us  82.967us  cuDeviceGetName
+                    0.01%  15.277us         2  7.6380us  5.5800us  9.6970us  cudaEventRecord
+                    0.01%  10.811us        50     216ns     187ns     446ns  cudaSetupArgument
+                    0.01%  8.2910us         1  8.2910us  8.2910us  8.2910us  cudaEventElapsedTime
+                    0.01%  7.7590us         3  2.5860us  2.1880us  3.2900us  cuDeviceGetCount
+                    0.00%  5.0760us         1  5.0760us  5.0760us  5.0760us  cudaEventSynchronize
+                    0.00%  4.4740us         2  2.2370us  2.1700us  2.3040us  cuDeviceGet
+                    0.00%  3.7910us        10     379ns     240ns  1.3510us  cudaConfigureCall
