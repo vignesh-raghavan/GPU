@@ -86,14 +86,16 @@ int main(int argc, char* argv[])
 	float* y;
    float* c;
    char* fname;
-   int N, iter, i, j;
+   int N, iter, i, j, M;
 
    cudaEvent_t start, stop;
    cudaEventCreate(&start);
    cudaEventCreate(&stop);
 
-   if(argc == 2) fname = argv[1];
+   if(argc >= 2) fname = argv[1];
    else fname = "../inputs/8.txt";
+   if(argc >= 3) M = atoi(argv[2]);
+   else M = 32;
 
    readFile(fname, &N, &iter, &A, &b);
 
@@ -127,7 +129,7 @@ int main(int argc, char* argv[])
 	//	d_y[i] = y[i];
 	//}
 
-	blocksize = fmin(256, N);
+	blocksize = fmin(M, N);
 	numblocks = (N+blocksize-1)/blocksize;
 	printf("CUDA : Grid Size %d, Block size %d\n", numblocks, blocksize);
 
@@ -136,16 +138,11 @@ int main(int argc, char* argv[])
 	if( cudaMemcpy(d_x, x, N*sizeof(float)  , cudaMemcpyHostToDevice) != cudaSuccess ) printf("CUDA : memory copy error!\n");
 	for(k = 0; k < iter; k++)
 	{
-	   //if( cudaMemcpy(d_x, x, N*sizeof(float)  , cudaMemcpyHostToDevice) != cudaSuccess ) printf("CUDA : memory copy error!\n");
 		iloop<<< numblocks, blocksize, N*sizeof(float) >>>(d_A, d_b, N, d_x, d_y); // kernel launch on GPU
 	   if( cudaMemcpy(d_x, d_y, N*sizeof(float)  , cudaMemcpyDeviceToDevice) != cudaSuccess ) printf("CUDA : memory copy error!\n");
-		//cudaDeviceSynchronize();
-		//iloop<<< numblocks, blocksize >>>(d_A, d_b, N, d_y, d_x); // kernel launch on GPU
-		//cudaDeviceSynchronize();
 	}
    if( cudaMemcpy(x, d_x, N*sizeof(float)  , cudaMemcpyDeviceToHost) != cudaSuccess ) printf("CUDA : memory copy error!\n");
 	
-	//add<<<1, 1>>>(d_x, d_y, N);
 	//cudaDeviceSynchronize();
 	//for(j = 0; j < N; j++) printf("CUDA : %f\n", d_y[j]);
 
