@@ -1,0 +1,32 @@
+==54485== NVPROF is profiling process 54485, command: ./jacobi2 ../inputs/8.txt 64
+==54485== Profiling application: ./jacobi2 ../inputs/8.txt 64
+==54485== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:  100.00%  876.96us        10  87.696us  30.951us  470.76us  iloop(float*, float*, int, float*, float*)
+      API calls:   84.11%  121.53ms         2  60.766ms  4.7080us  121.53ms  cudaEventCreate
+                   14.13%  20.423ms         4  5.1058ms  12.065us  20.384ms  cudaMallocManaged
+                    0.64%  917.98us        10  91.798us  31.885us  476.35us  cudaDeviceSynchronize
+                    0.48%  695.07us        94  7.3940us     953ns  254.81us  cuDeviceGetAttribute
+                    0.26%  378.19us         1  378.19us  378.19us  378.19us  cuDeviceTotalMem
+                    0.22%  311.24us        10  31.124us  24.359us  67.688us  cudaLaunch
+                    0.09%  124.90us         4  31.225us  19.645us  53.957us  cudaFree
+                    0.04%  59.088us         1  59.088us  59.088us  59.088us  cuDeviceGetName
+                    0.01%  18.916us         2  9.4580us  7.7320us  11.184us  cudaEventRecord
+                    0.01%  12.563us        50     251ns     193ns     457ns  cudaSetupArgument
+                    0.01%  8.0900us         1  8.0900us  8.0900us  8.0900us  cudaEventElapsedTime
+                    0.00%  5.9610us         1  5.9610us  5.9610us  5.9610us  cudaEventSynchronize
+                    0.00%  4.7150us         3  1.5710us  1.1740us  2.3650us  cuDeviceGetCount
+                    0.00%  4.6570us        10     465ns     354ns     838ns  cudaConfigureCall
+                    0.00%  2.2650us         2  1.1320us  1.0580us  1.2070us  cuDeviceGet
+
+==54485== Unified Memory profiling result:
+Device "Tesla P100-SXM2-16GB (0)"
+   Count  Avg Size  Min Size  Max Size  Total Size  Total Time  Name
+      10  64.000KB  64.000KB  64.000KB  640.0000KB  30.68800us  Host To Device
+      10  64.000KB  64.000KB  64.000KB  640.0000KB  23.96800us  Device To Host
+      65         -         -         -           -  857.2800us  Gpu page fault groups
+       1         -         -         -           -  434.8550us  Page throttles
+       3  64.000KB  64.000KB  64.000KB  192.0000KB           -  Memory thrashes
+Total CPU Page faults: 13
+Total CPU thrashes: 3
+Total CPU throttles: 2
