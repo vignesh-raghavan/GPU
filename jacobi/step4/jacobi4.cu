@@ -140,7 +140,7 @@ int main(int argc, char* argv[])
 	float* y;
    float* c;
    char* fname;
-   int N, iter, i, j;
+   int N, iter, i, j, M;
 
    cudaEvent_t start, stop;
    cudaEventCreate(&start);
@@ -148,6 +148,8 @@ int main(int argc, char* argv[])
 
    if(argc >= 2) fname = argv[1];
    else fname = "../inputs/8.txt";
+   if(argc >= 3) M = atoi(argv[2]);
+   else M = 32;
 
 	//if(argc >= 3) devID = atoi(argv[2]);
 	//else devID = 1;
@@ -184,7 +186,7 @@ int main(int argc, char* argv[])
 
 	nstreams = 2;
 	streamsize = N/nstreams;
-	blocksize = (int) fmin(256, streamsize);
+	blocksize = (int) fmin(M, streamsize);
 	numblocks = streamsize/blocksize;
 	//numblocks = (N+blocksize-1)/blocksize;
 	printf("CUDA : Streams %d, Grid Size %d, Block size %d\n", nstreams, numblocks, blocksize);
