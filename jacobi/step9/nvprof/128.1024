@@ -1,0 +1,22 @@
+==31986== NVPROF is profiling process 31986, command: ./jacobi9 ../inputs/1024.txt 128
+==31986== Profiling application: ./jacobi9 ../inputs/1024.txt 128
+==31986== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   99.91%  324.34ms     10000  32.433us  29.697us  37.122us  iloop(float*, float*, int, float*)
+                    0.09%  279.08us         3  93.028us  1.1840us  276.69us  [CUDA memcpy HtoD]
+                    0.00%     672ns         1     672ns     672ns     672ns  [CUDA memcpy DtoH]
+      API calls:   61.08%  262.91ms     10000  26.291us  11.240us  462.32us  cudaLaunch
+                   27.81%  119.70ms         2  59.848ms  4.3170us  119.69ms  cudaEventCreate
+                    7.79%  33.535ms         4  8.3838ms  16.115us  33.078ms  cudaMemcpy
+                    2.14%  9.1931ms     40000     229ns     181ns  363.01us  cudaSetupArgument
+                    0.65%  2.8000ms     10000     279ns     221ns  2.9120us  cudaConfigureCall
+                    0.16%  696.62us        94  7.4100us     938ns  252.41us  cuDeviceGetAttribute
+                    0.15%  640.24us         3  213.41us  12.004us  372.14us  cudaMalloc
+                    0.11%  482.84us         3  160.95us  14.580us  291.30us  cudaFree
+                    0.09%  377.32us         1  377.32us  377.32us  377.32us  cuDeviceTotalMem
+                    0.01%  55.651us         1  55.651us  55.651us  55.651us  cuDeviceGetName
+                    0.01%  24.166us         2  12.083us  8.2250us  15.941us  cudaEventRecord
+                    0.00%  8.8070us         1  8.8070us  8.8070us  8.8070us  cudaEventElapsedTime
+                    0.00%  5.8970us         1  5.8970us  5.8970us  5.8970us  cudaEventSynchronize
+                    0.00%  4.4670us         3  1.4890us  1.0900us  2.1410us  cuDeviceGetCount
+                    0.00%  2.3010us         2  1.1500us  1.0650us  1.2360us  cuDeviceGet
